@@ -1,0 +1,31 @@
+<div>
+    <form [formGroup]="heroeForm" (ngSubmit)="onSave()">
+
+        <div class="form-group">
+            <label for="nombreID">Nombre</label>
+            <input type="text" class="form-control" id="nombreID" formControlName="nombre">
+        </div>
+
+        <div class="form-group">
+            <label for="bioId">Bio</label>
+            <input type="text" class="form-control" id="bioId" formControlName="bio">
+        </div>
+
+        <div class="form-group">
+            <label for="imgId">img</label>
+            <input type="text" class="form-control" id="imgId" formControlName="img">
+        </div>
+
+        <div class="form-group">
+            <label for="apaId">Aparicion</label>
+            <input type="text" class="form-control" id="apaId" formControlName="aparicion">
+        </div>
+
+        <div class="form-group">
+            <label for="casaId">Casa</label>
+            <input type="text" class="form-control" id="casaId" formControlName="casa">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</div>
