@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter  } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataDbService } from 'src/app/service/DataDb.service';
+
 
 @Component({
   selector: 'app-heroe-tarjeta',
@@ -8,18 +10,20 @@ import { Router } from '@angular/router';
 export class HeroeTarjetaComponent implements OnInit {
 @Input() heroe: any = {};
 @Input() index: number;
+id: any = 'hola';
 
 @Output() heroeSelect: EventEmitter<number>;
 
-  constructor( private router: Router) { 
+  constructor( private router: Router,
+               private dbData: DataDbService
+              ) {
     this.heroeSelect = new EventEmitter();
   }
 
   ngOnInit() {
   }
   verHeroe( ) {
-    //this.router.navigate( ['/heroe', this.index]);
-    this.heroeSelect.emit( this.index );
+     this.heroeSelect.emit( this.heroe.id );
     }
 
 }

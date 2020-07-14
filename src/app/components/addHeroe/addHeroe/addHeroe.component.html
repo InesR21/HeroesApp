@@ -1,31 +1,48 @@
-<div>
-    <form [formGroup]="heroeForm" (ngSubmit)="onSave()">
-
-        <div class="form-group">
-            <label for="nombreID">Nombre</label>
-            <input type="text" class="form-control" id="nombreID" formControlName="nombre">
-        </div>
-
-        <div class="form-group">
-            <label for="bioId">Bio</label>
-            <input type="text" class="form-control" id="bioId" formControlName="bio">
-        </div>
-
-        <div class="form-group">
-            <label for="imgId">img</label>
-            <input type="text" class="form-control" id="imgId" formControlName="img">
-        </div>
-
-        <div class="form-group">
-            <label for="apaId">Aparicion</label>
-            <input type="text" class="form-control" id="apaId" formControlName="aparicion">
-        </div>
-
-        <div class="form-group">
-            <label for="casaId">Casa</label>
-            <input type="text" class="form-control" id="casaId" formControlName="casa">
-        </div>
-
-        <button type="submit" class="btn btn-primary">Enviar</button>
-    </form>
+<div class="mb-5">
+    <h2>Agregue nuevo Heroe</h2>
+    <hr>
 </div>
+<form [formGroup]="heroeForm" (ngSubmit)="onSave()" class="needs-validation">
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="nombreID">Nombre</label>
+            <input type="text" class="form-control" id="nombreID" formControlName="nombre" required>
+            <div class="invalid-feedback" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                Este campo es requerido.
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="imgId">Img Url</label>
+            <input type="url" class="form-control" id="imgId" formControlName="img" required>
+            <div class="invalid-feedback" *ngIf="img.invalid && (img.dirty || img.touched)">
+                Este campo es requerido.
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="apaId">Aparición</label>
+            <input type="text" class="form-control" id="apaId" formControlName="aparicion" required>
+            <div class="invalid-feedback" *ngIf="aparicion.invalid && (aparicion.dirty || aparicion.touched)">
+                Este campo es requerido.
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="casaId">Casa</label>
+            <select id="casaId" class="form-control" formControlName="casa" required>
+                  <option selected disabled value="">Seleccione...</option>
+                <option value="DC" >DC</option>
+                <option value="Marvel">Marvel</option>
+            </select>
+            <div class="invalid-feedback" *ngIf="casa.invalid && (casa.dirty || casa.touched)">
+                Este campo es requerido.
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <label class="" for="bioId">Biografía</label>
+            <textarea class="form-control" formControlName="bio" id="bioId" rows="4" required></textarea>
+            <div class="invalid-feedback" *ngIf="bio.invalid && (bio.dirty || bio.touched)">
+                Este campo es requerido.
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!heroeForm.valid">Enviar</button>
+</form>

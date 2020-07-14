@@ -1,0 +1,11 @@
+h2 {
+    text-align: center;
+}
+
+.invalid-feedback {
+    display: block;
+}
+
+button:disabled {
+    cursor: not-allowed;
+}

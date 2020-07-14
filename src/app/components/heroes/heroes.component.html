@@ -3,12 +3,15 @@
         <div class="col-md-10  mb-5">
             <h1>Marvel | DC</h1>
         </div>
-        <div class="col-md-2 pt-6">
+        <div class="col-md-2 pt-6 alingAdd">
             <a [routerLink]="['/addHeroe']"><i class="fa fa-plus-circle" aria-hidden="true"> Add</i></a>
         </div>
-        <div class="card-columns">
+        <div class="card-columns" *ngIf="heroes.length !== 0">
             <app-heroe-tarjeta (heroeSelect)="verHeroe( $event )" [heroe]="heroe" [index]="i" *ngFor="let heroe of heroes, let i = index">
             </app-heroe-tarjeta>
+        </div>
+        <div *ngIf="heroes.length === 0">
+            <div class="loader"></div>
         </div>
     </div>
 </div>
