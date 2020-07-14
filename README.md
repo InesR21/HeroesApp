@@ -1,7 +1,7 @@
 # HeroesApp
 
 It is a web app for super heroes, created with Angular and Firebase, the following was done:
-## CRUD for heroes
+- CRUD for heroes
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
 
